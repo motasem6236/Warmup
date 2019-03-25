@@ -1,12 +1,42 @@
+	
+
+
+
 	// 1) 'negativeAll' create function that accept array as input and check the element 
     //     if it's positive make it negative 
+    
+  function map (coll,f){
+
+  var acc = [];
+  if (!Array.isArray(coll)){
+    acc = {};
+  }
+  each(coll, function(element, key){
+    acc [key] = f(element,key);
+  });
+  return acc;
+}
     function each(array, func) {
         for (var i = 0; i < array.length; i++) {
           func(array[i]);
         }
     }
+
+
+function filter(array,predicate){
+
+  var acc = [];
+  each(array,function(element){
+
+    if(predicate(element)){
+
+      acc.push(element)
+    }
+
 	function negativeAll(array) {
-	 //your code here
+	  return filter (array,number){
+	  	return (number > 0 ) * -1
+	  }
 	}
 
 	/*
@@ -23,5 +53,11 @@
         }
     }
 	function multiplyOfFour(array) {
-	    //your code here
+	    var newArray = [];
+	    each(array,element){
+	    	if(array[element] % 4 === 0){
+	    		return element
+	    	}
+	    }
+	    return newArray ;
 	}
